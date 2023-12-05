@@ -1,41 +1,21 @@
-
-import './App.css'
-
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: {Main},
-  },
-]);
-
-const NotFoundPageRouter = createBrowserRouter([
-  {
-    path: "/404",
-    element: {NotFound404},
-  },
-]);
-
-const RoomPageRouter = createBrowserRouter([
-  {
-    path: "/room:id",
-    element: {Room},
-  },
-]);
+import React from 'react';
+import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Main from './pages/Main';
+import NotFound404 from './pages/NotFound404';
+import Room from './pages/Room';
 
 function App() {
-
   return (
-    <>
-      <RouterProvider router={router} />
-      <RouterProvider router={NotFoundPageRouter} />
-      <RouterProvider router={RoomPageRouter} />
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/room/:id" element={<Room />} />
+        {/* Add a catch-all route for 404 errors */}
+        <Route path="*" element={<NotFound404 />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
