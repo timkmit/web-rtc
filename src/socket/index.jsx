@@ -6,14 +6,14 @@ const options = {
   transports: ['websocket'],
 };
 
-const socket = io('http://localhost:3001', options);
+const socket = io('http://localhost:3088', options);
 
 socket.on('connect', () => {
-  console.log('Connected to the server');
+  console.log('Socket connected to the server');
 });
 
 socket.on('disconnect', () => {
-  console.log('Disconnected from the server');
+  console.log('Socket disconnected from the server');
 });
 
 export default socket;
