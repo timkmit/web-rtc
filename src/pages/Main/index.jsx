@@ -1,3 +1,5 @@
+import socket from "../../socket";
+
 function Main() {
     return ( 
         <div>

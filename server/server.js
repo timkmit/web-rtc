@@ -3,6 +3,8 @@ import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
@@ -18,8 +20,12 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something went wrong!');
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3088;
+
+io.on('connection', (socket) => {
+  console.log('Socket connected');
+});
 
 server.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`);
+  console.log(`Server is listening on port ${PORT}`);
 });
