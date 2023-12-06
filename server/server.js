@@ -2,7 +2,7 @@ import path from 'path';
 import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
-import ACTIONS from '../src/socket/actions';
+import ACTIONS from '../src/socket/actions.js';
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 

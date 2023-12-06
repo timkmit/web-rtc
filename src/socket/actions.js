@@ -11,4 +11,4 @@ const ACTIONS = {
     
 }
 
-module.exports = ACTIONS;
+export default ACTIONS;
