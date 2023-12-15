@@ -3,6 +3,7 @@ import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 import ACTIONS from '../src/socket/actions.js';
+import {version, validate} from 'uuid';
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
@@ -26,7 +27,7 @@ const PORT = process.env.PORT || 3088;
 function getClientRooms() {
   const {rooms} = io.sockets.adapter;
 
-  return Array.from(rooms.keys())
+  return Array.from(rooms.keys()).filter(roomID => validate(roomID) && version === 4)
 }
 
 function shareRoomsInfo() {

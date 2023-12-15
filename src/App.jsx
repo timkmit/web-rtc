@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/room/:id" element={<Room />} />
-        {/* Add a catch-all route for 404 errors */}
+        
         <Route path="*" element={<NotFound404 />} />
       </Routes>
     </Router>
